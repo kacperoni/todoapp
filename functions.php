@@ -9,11 +9,11 @@ function readAllToDoTasks(){
     while($row=mysqli_fetch_assoc($allTasksQuery)){
         $id_task = $row['id_task'];
         $title_task = $row['title_task'];
-        $done_task = $row['done_task'];
-        if($done_task) $status_task = "Done";
-        else $status_task = "To do";
-        echo "<tr><td>$title_task</td>";
-        if(!$done_task) echo "<td><a href='index.php?taskToChange=$id_task'> DONE</a></td>";
+
+        echo "<li class='list-group-item d-flex justify-content-between align-items-center'>$title_task";
+        echo "<div class='d-flex flex-row-reverse'><a href='index.php?taskToDelete=$id_task'><span class='badge bg-danger rounded-pill m-1'>&#10007</span></a>";
+        echo "<a href='index.php?taskToUpdate=$id_task'><span class='badge bg-warning rounded-pill m-1'>&#9998</span>";
+        echo "<a href='index.php?taskToChange=$id_task'><span class='badge bg-success rounded-pill m-1'>&#10004</span></a></div></li>";
     }
 }
 
@@ -26,11 +26,10 @@ function readAllDoneTasks(){
     while($row=mysqli_fetch_assoc($allTasksQuery)){
         $id_task = $row['id_task'];
         $title_task = $row['title_task'];
-        $done_task = $row['done_task'];
-        if($done_task) $status_task = "Done";
-        else $status_task = "To do";
-        echo "<tr><td>$title_task</td>";
-        echo "<td><a href='index.php?taskToDelete=$id_task'> X</a></td></tr>";
+
+        echo "<li class='list-group-item d-flex justify-content-between align-items-center'>$title_task";
+        echo "<div class='d-flex flex-row-reverse'><a href='index.php?taskToDelete=$id_task'>";
+        echo "<span class='badge bg-danger rounded-pill m-1'>&#10007</span></a></div></li>";
     }
 }
 
