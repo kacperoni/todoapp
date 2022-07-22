@@ -1,2 +1,9 @@
 # todoapp
-Just a basic to do list made using php and bootstrap
+Just a basic todos.
+Stack:
+<ul>
+  <li>PHP</li>
+  <li>Bootstrap</li>
+  <li>Maria DB</li>
+</ul>
+
